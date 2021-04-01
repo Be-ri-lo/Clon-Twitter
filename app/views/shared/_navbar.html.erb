@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href=""> <%= link_to 'Twitter', root_path %></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                
+                <% if user_signed_in? %>
+                    <li><%= link_to 'Editar perfil', edit_user_registration_path %></li>
+                    <li><%= link_to 'Tweets', tweets_path %></li>
+                    <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Regístrate', new_user_registration_path %></li>
+                    <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
+                <% end %>
+
+            </ul>
+        </div>
+    </div>
+</div>
+</nav>
